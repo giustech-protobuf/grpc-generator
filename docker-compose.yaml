@@ -1,0 +1,14 @@
+version: "3"
+services:
+  compiler-go:
+    container_name: proto_buffer
+    image: goland-generator:latest
+    environment:
+      github_token: ""
+      preffix_pkg_application: "MOD_NAME/ROOT_PKG_NAME"
+    volumes:
+      - .:/files
+      - ./pkg:/protobuf
+    working_dir:
+      /init
+    entrypoint: bash /files/dockerfile/entry-point.bash
